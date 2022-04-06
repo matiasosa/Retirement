@@ -43,7 +43,7 @@ def inputDates(start, end, done):
 
 
 driver = webdriver.Chrome(executable_path="/Users/matiassosa/Downloads/chromedriver")
-driver.get("https://matiasosa.github.io/retirement-system/")
+driver.get("https://matiasosa.github.io/SMATA/")
 
 #nombre | char de la empresa | arr de fechas
 def execute(clientName, compName, dates):
