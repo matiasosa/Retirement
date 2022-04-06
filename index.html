@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- STYLE -->
+    <link rel="stylesheet" href="style.css">
+    <!-- CODE -->
+    <script src="lib/moment/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment-precise-range-plugin@1.3.0/moment-precise-range.min.js"></script>
+    
+    <title>Calculadora de Fechas</title>
+</head>
+
+<!-- @matisosa_ -->
+
+<body class="container">
+
+    <div class="sub-container">
+
+        <!-- BLOQUE 1 -->
+
+        <div class="client-info block">
+            <h3>Ingrese el nombre del cliente</h3>
+            <input id="clientName" type="text" placeholder="Nombre" onkeydown="onlyAlpha(event); getOnKeyClient(event);">           
+            <button id="clientButton" class="button" onclick="getClient()">Enviar</button>
+        </div>
+
+       <!-- BLOQUE 2 -->
+
+       <div class="company-info block">
+            <h3>Ingrese la empresa</h3>
+            <input id="companyName" type="text" placeholder="Empresa" disabled onkeydown="getOnKeyCompany(event)">
+            <button id="companytButton" class="button" onclick="getCompany()">Enviar</button>
+        </div>
+    
+    </div>
+
+     <!-- BLOQUE 3 -->
+
+     <div class="dates block">
+        <div class="date-inputs">
+            <div class="date-input-inic">
+                <p>Fecha de inicio</p>
+                <input type="text" id="dateStart" placeholder="DD/MM/AAAA" disabled onkeydown="maxLengthInput(event)" maxlength="10">
+            </div>
+            <div class="date-input-fin">
+                <p>Fecha de fin</p>
+                <input type="text" id="dateEnd" placeholder="DD/MM/AAAA" disabled onkeydown="maxLengthInput(this); onKeyFuncExperience(event);" maxlength="10">
+            </div>
+        </div>
+<!-- onlyNumeric(event); -->
+        <div class="date-button">
+            <button class="button" id="date-button-ag" onclick="funcExperience()">Agregar</button>
+            <button class="button" onclick="submitInfo()">Finalizar</button>
+        </div>
+    </div>
+
+    <!-- BLOQUE 4 -->
+
+    <div class="results-container block">
+        <div class="results">
+            <div class="results-tittle">
+                <p>Resultados</p>
+            </div>
+    
+            <ul id="resultsList" class="results-list">
+            </ul>
+        </div>
+    </div>
+    
+    <!-- JAVASCRIPT CODDE -->
+    <script src="code.js"></script>
+
+</body>
+
+
+</html>

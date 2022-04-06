@@ -1,0 +1,68 @@
+ - Under //FECHAS
+
+// function getDateDifferenceInDays(start, end){
+//     const date1 = new Date(start);
+//     const date2 = new Date(end);
+//     const diffTime = Math.abs(date2 - date1);
+//     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+//     return diffDays;
+// }
+
+
+ - In getDateDifference
+
+// var years = Math.floor(diffDays / 365);
+// var months0 = Math.round(diffDays % 365);
+// var months = Math.round(months0 / 30);
+
+// if(months0 != 0)
+// {
+//     months++;
+// }
+
+
+ - Anotations
+
+// tab keycode = 9
+
+
+ - getFullDateDif
+
+// console.log("Array: " + dateInArr);
+
+// console.log("Dias");
+// console.log(days);
+// console.log(daysTotal);
+
+// console.log("Mes");
+// console.log(months);
+// console.log(monthsTotal);
+
+// console.log("Año");
+// console.log(years);
+// console.log(yearsTotal);
+
+// console.log("Total:");
+// console.log(daysTotal);
+// console.log(monthsTotal);
+// console.log(yearsTotal);
+// console.log("________");
+
+
+ - getDateDifference
+
+// console.log("Dias");
+// console.log(days);
+// console.log(daysTotal);
+
+// console.log("Mes");
+// console.log(months);
+// console.log(monthsTotal);
+
+// console.log("Año");
+// console.log(years);
+// console.log(yearsTotal);
+
+
+
+_____________________
