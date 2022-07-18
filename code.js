@@ -20,14 +20,18 @@ function onlyNumeric(event){
         event.preventDefault();
     }
 }
+
 //determinates a maximum length for the input content
-function maxLengthInput(x){
-   
-    if(x.length == 10)
-    {
-        event.preventDefault();
-    }
-}
+// function maxLengthInput(x){ //DELETE
+//   
+//     if(x.length == 10)
+//     {
+//         event.preventDefault();
+//     }
+// }
+
+
+
 //verifies if the input is empty (in development:to verify more things)
 function inputIsValid(x){
     return x.length !== 0;
@@ -69,7 +73,7 @@ function timeTotal(yearsTotal, monthsTotal, daysTotal){
     return totalArr;
 }
 
-//verifies if the array contains or not year, month and day (should use less resources)
+//verifies if the array contains year, month and day (should be implemented better)
 function checkDate(dif, dateInArr){
     var includeYear = dif.includes("year");
     var includeMonth = dif.includes("month");
@@ -118,11 +122,11 @@ function checkDate(dif, dateInArr){
         days = dateInArr[0];
     }
 
-    if(days == 30)
-    {
-        months++;
-        days = 0
-    }
+    // if(days == 30)
+    // {
+    //     months++;
+    //     days = 0
+    // }
     
 }
 

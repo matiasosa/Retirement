@@ -2,7 +2,6 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
 
-
 #AUX
 def inputWrite(x, content):
     x.clear
@@ -57,11 +56,17 @@ def execute(clientName, compName, dates):
             end = True
         inputDates(dates[i+i], dates[i+i+1], end)
 
-dates1 = ["07/03/2002", "04/01/2014", "10/1992", "02/1999"]
-execute("Matias Sosa", "A", dates1)
+dates1 = ["08/04/1990", "21/11/1995", "19/11/1997", "04/08/2000", "12/02/2001", "17/01/2006"]
+execute("Persona 1", "A", dates1)
 
-dates2 = ["07/03/2002", "04/01/2014", "10/1992", "02/1999"]
-execute("Ariel Sosa", "A", dates2)
+dates2 = ["23/10/1996", "14/05/1998", "19/06/1998", "30/03/2000"]
+execute("Persona 2", "B", dates2)
+
+dates3 = ["25/03/1996", "05/11/2000", "08/2001", "01/2004", "30/06/2004", "01/12/2008"]
+execute("Persona 3", "C", dates3)
+
+dates4 = ["23/10/2000", "12/06/2002", "29/02/2020", "10/06/2022"]
+execute("Persona 4", "D", dates4)
 
 
 

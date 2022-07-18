@@ -43,15 +43,15 @@
      <div class="dates block">
         <div class="date-inputs">
             <div class="date-input-inic">
-                <p>Fecha de inicio</p>
-                <input type="text" id="dateStart" placeholder="DD/MM/AAAA" disabled onkeydown="maxLengthInput(event)" maxlength="10">
+                <p>Fecha de inici</p>
+                <input type="text" id="dateStart" placeholder="DD/MM/AAAA" disabled maxlength="10">
             </div>
             <div class="date-input-fin">
                 <p>Fecha de fin</p>
-                <input type="text" id="dateEnd" placeholder="DD/MM/AAAA" disabled onkeydown="maxLengthInput(this); onKeyFuncExperience(event);" maxlength="10">
+                <input type="text" id="dateEnd" placeholder="DD/MM/AAAA" disabled onkeydown="onKeyFuncExperience(event)" maxlength="10">
             </div>
         </div>
-<!-- onlyNumeric(event); -->
+        <!-- onlyNumeric(event); -->
         <div class="date-button">
             <button class="button" id="date-button-ag" onclick="funcExperience()">Agregar</button>
             <button class="button" onclick="submitInfo()">Finalizar</button>
