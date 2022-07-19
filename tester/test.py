@@ -42,7 +42,8 @@ def inputDates(start, end, done):
 
 
 driver = webdriver.Chrome(executable_path="/Users/matiassosa/Downloads/chromedriver")
-driver.get("https://matiasosa.github.io/SMATA/")
+driver.get("file:///Users/matiassosa/Desktop/macbookPro/retirement/index.html")
+#https://matiasosa.github.io/SMATA/
 
 #nombre | char de la empresa | arr de fechas
 def execute(clientName, compName, dates):
@@ -57,16 +58,16 @@ def execute(clientName, compName, dates):
         inputDates(dates[i+i], dates[i+i+1], end)
 
 dates1 = ["08/04/1990", "21/11/1995", "19/11/1997", "04/08/2000", "12/02/2001", "17/01/2006"]
-execute("Persona 1", "A", dates1)
+execute("Matias Sosa", "A", dates1)
 
 dates2 = ["23/10/1996", "14/05/1998", "19/06/1998", "30/03/2000"]
-execute("Persona 2", "B", dates2)
+execute("Giovanni Sosa", "B", dates2)
 
 dates3 = ["25/03/1996", "05/11/2000", "08/2001", "01/2004", "30/06/2004", "01/12/2008"]
-execute("Persona 3", "C", dates3)
+execute("Ariel Sosa", "C", dates3)
 
 dates4 = ["23/10/2000", "12/06/2002", "29/02/2020", "10/06/2022"]
-execute("Persona 4", "D", dates4)
+execute("Andrea Liuni", "D", dates4)
 
 
 

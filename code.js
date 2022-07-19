@@ -21,20 +21,24 @@ function onlyNumeric(event){
     }
 }
 
-//determinates a maximum length for the input content
-// function maxLengthInput(x){ //DELETE
-//   
-//     if(x.length == 10)
-//     {
-//         event.preventDefault();
-//     }
-// }
+//creates an array of date objects (start:end) and save them to be shown later
+function displayList(len)
+{
+    var startDisplay = start;
+    var endDisplay = end;
+    if(len === 7)
+    {
+        startDisplay = startDisplay.slice(-7);
+        endDisplay = endDisplay.slice(-7);
 
-
-
-//verifies if the input is empty (in development:to verify more things)
-function inputIsValid(x){
-    return x.length !== 0;
+        toDisplay = {startDisp: startDisplay, endDisp: endDisplay};
+        display.push(toDisplay);
+    }
+    else
+    {
+        toDisplay = {startDisp: startDisplay, endDisp: endDisplay};
+        display.push(toDisplay);
+    }
 }
 
 //transform date format from dd/mm/yyyy to mm/dd/yyyy
@@ -43,14 +47,6 @@ function orderDate(date){
     let months = date.slice(3,5);
     let years = date.slice(6,10);
     return months + '/' + days + '/' + years;
-}
-
-//calculates the time diference in months between two dates
-function monthDiff(start, end) {
-    const dateStart = new Date(start);
-    const dateEnd = new Date(end);
-    return dateEnd.getMonth() - dateStart.getMonth() + 
-    (12 * (dateEnd.getFullYear() - dateStart.getFullYear()))
 }
 
 //organizes the total in the format aaaa/mm/dd
@@ -73,7 +69,7 @@ function timeTotal(yearsTotal, monthsTotal, daysTotal){
     return totalArr;
 }
 
-//verifies if the array contains year, month and day (should be implemented better)
+//verifies if the array contains or not year, month and day (should use less resources)
 function checkDate(dif, dateInArr){
     var includeYear = dif.includes("year");
     var includeMonth = dif.includes("month");
@@ -122,39 +118,19 @@ function checkDate(dif, dateInArr){
         days = dateInArr[0];
     }
 
-    // if(days == 30)
-    // {
-    //     months++;
-    //     days = 0
-    // }
+    if(days == 30)
+    {
+        months++;
+        days = 0
+    }
     
 }
 
-//creates an array of date objects (start:end) and save them to be shown later
-function displayList(len)
-{
-    var startDisplay = start;
-    var endDisplay = end;
-    if(len === 7)
-    {
-        startDisplay = startDisplay.slice(-7);
-        endDisplay = endDisplay.slice(-7);
-
-        toDisplay = {startDisp: startDisplay, endDisp: endDisplay};
-        display.push(toDisplay);
-    }
-    else
-    {
-        toDisplay = {startDisp: startDisplay, endDisp: endDisplay};
-        display.push(toDisplay);
-    }
-}
 
 //---------------------------------  OBTAIN  ---------------------------------//
 
 
 // DATES
-
 var years = 0;
 var months = 0;
 var days = 0;
@@ -225,12 +201,27 @@ function showYearsMonths(years, months){
         years === 1? years + " año y " + months + " meses":
         years + " años y " + months + " meses";
 }
+//calculates the time diference in months between two dates
+function monthDiff(start, end) {
+    const dateStart = new Date(start);
+    const dateEnd = new Date(end);
+    return dateEnd.getMonth() - dateStart.getMonth() + 
+    (12 * (dateEnd.getFullYear() - dateStart.getFullYear()))
+}
 
 
-// CLIENT
+// -------------------------------  MODULE 1 y 2 -------------------------------// ✅
 
-var client = null;
+//-Functions-//
 
+// verifies if the input is empty (in development:to verify more things)
+function inputIsValid(x){
+    return x.length !== 0;
+}
+
+//-Client-//
+
+var client;
 //obtains the client name
 function getClient(){
     client = document.getElementById("clientName").value;
@@ -245,20 +236,14 @@ function getClient(){
         companyName.select();
     }
 }
-function getOnKeyClient(event){
+function getClientOnKey(event){
     var key = event.keyCode;
-    
-    if(key == 13)
-    {
-        getClient();
-    }
+    key == 13? getClient(): key;
 }
 
+//-Company-//
 
-// COMPANY
-
-var company = null;
-
+var company;
 // obtains the company name
 function getCompany(){
     company = document.getElementById("companyName").value;
@@ -274,26 +259,20 @@ function getCompany(){
         dateStart.select();
     }
 }
-function getOnKeyCompany(event){
+function getCompanyOnKey(event){
     var key = event.keyCode;
-    if(key == 13)
-    {
-        getCompany();
-    }
+    key == 13? getCompany(): key;
 }
 
-//---------------------------------  EXECUTE  ---------------------------------//
 
+// -------------------------------  MODULE 3 -------------------------------// ❌
 
-// TIME WORKED
+//-Functions//
 
-var start;
-var end;
+var start, end, toDisplay;
 var totalTime = null;
 var display = [];
-var toDisplay;
 var isFullDate = false;
-
 //obtain the dates and execute the functions to calculate the diference
 function getYears(){
     start = document.getElementById("dateStart").value;
@@ -324,20 +303,15 @@ function getYears(){
     }
 }
 
-
-// EXPERIENCE
-
 var experience;
 var totalExperience = [];
-
 //saves the company and the time the client worked for it
 function addExperience(company, totalTime){
     experience = {work: company, time: totalTime};
     totalExperience.push(experience);
 }
 
-
-// ADD WORK AND TIME
+//-Agregar-//
 
 //executes the functions getYears and addExperience when "agregar" is pressed
 function funcExperience(){
@@ -364,21 +338,15 @@ function funcExperience(){
     months = 0;
     years = 0;
 }
-function onKeyFuncExperience(event){
+function funcExperienceOnKey(event){
     var key = event.keyCode;
-    
-    if(key == 13)
-    {
-        funcExperience();
-    }
+    key == 13? funcExperience(): key;
 }
 
-
-// ADD CLIENT
+//-Finalizar-//
 
 var person;
 var people = [];
-
 //saves the client with his/her total path and executes showPeople
 function submitInfo(){
     person = {name: client, path: totalExperience}
@@ -399,11 +367,10 @@ function submitInfo(){
 }
 
 
-// RESULTS
+// -------------------------------  MODULE 4 -------------------------------// ❌
 
 var peopleIndex = 0;
 var cont = 0;
-
 // creates every element that will be showed in the "resultados" list in front-end
 function showPeople(){
     var ul = document.getElementById("resultsList");
@@ -488,11 +455,9 @@ function showPeople(){
     ////////////////////////
 }
 
-
 //BUTTON
 
 var itemClass = ".item-list";
-
 //obtains wich button is pressing to ralate ir with a list
 function getButtonId(button){
     var buttonId = button.id;

@@ -1,6 +1,7 @@
 Detector de errores:
     Ingresar una fecha:
-        Que el input no este vacio
+        Que el input no este vacio -ok
+        
         Que la fecha sea valida
         Que no sea un string
         ... Buscar que el input sea estrictamente una fecha
@@ -10,26 +11,26 @@ Detector de errores:
         Se puede agregar un nombre para identificar a cada proceso
 
 
-Una vez enviado el cliente este debe pasar a disable.
+Una vez enviado el cliente este debe pasar a disable. -ok
 
-Onclick = "Agregar" => vaciar "empresa" y "fechas" y disable fechas.
+Onclick = "Agregar" => vaciar "empresa" y "fechas", disable fechas y apuntar a empresa. -ok
 
-Onclick = "Finalizar" => empezar de 0, pedir "nombre", con "empresa" y "fechas" disable ...
+Onclick = "Finalizar" => empezar de 0, pedir "nombre", con "empresa" y "fechas" disabled -ok
 
-	... programar la función que muestre al cliente y su trayectoria en "Resultados", es decir, mostrar el array people.
+	... programar la función que muestre al cliente y su trayectoria en "Resultados", es decir, mostrar el array people. -ok
 
-Limitar la cantidad de chars que pueden tener las fechas (10 = 99/99/9999)
+Limitar la cantidad de chars que pueden tener las fechas (10 = 99/99/9999) -ok
 
 Handle:
 	- Hover botones
-
-	- Empty submits ("Agregar" / "Finalizar")
+	- Empty submits ("Agregar" / "Finalizar") (se relaciona con la linea 7)
 
 Add: 
     - Boton para poder eliminar a una persona (añadir una confirmacion previa a eliminar)
-    
+    - El boton "Enviar" cambia a "Editar" al hacerle click. Si se hace click en "Editar", se permite modificar el campo.
 
 
 Public
 Web page to make a list of the companies that people has worked for, and the time they were there.
 It's oriented to an especific work task at a retirement job.
+
