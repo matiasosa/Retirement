@@ -1,0 +1,135 @@
+//FILE TO SAVE DELETED OR MODIFIED FIUNCTIONS
+
+returns the string output for every case of a date (dd/mm/yyyy) 
+function showYearsMonths(years, months){
+    return years === 1 && months === 1? years + " año y " + months + " mes": 
+        months === 1? years + " años y " + months + " mes":
+        years === 1? years + " año y " + months + " meses":
+        years + " años y " + months + " meses";
+}
+
+//calculates the time diference in months between two dates
+function monthDiff(start, end) {
+    const dateStart = new Date(start);
+    const dateEnd = new Date(end);
+    return dateEnd.getMonth() - dateStart.getMonth() + 
+    (12 * (dateEnd.getFullYear() - dateStart.getFullYear()))
+}
+
+
+var isFullDate = false;
+//obtain the dates and execute the functions to calculate the diference
+function getYears(){
+    start = document.getElementById("dateStart").value;
+    end = document.getElementById("dateEnd").value;
+ 
+    let len = start.length;
+    //si la fecha no incluye el dia
+    if (len === 7)
+    {
+        start = "01/" + start;
+        end = "01/" + end;     
+    }
+
+    displayList(len);
+
+    start = orderDate(start);
+    end = orderDate(end);
+
+    if(len === 10)
+    {
+        totalTime = getFullDateDif(start, end);
+        isFullDate = true;
+    }
+    else
+    {    
+        let timeInMonths = monthDiff(start, end);
+        totalTime = getDateDifference(timeInMonths);
+    }
+}
+
+var peopleIndex = 0;
+var cont = 0;
+// creates every element that will be showed in the "resultados" list in front-end
+function showPeople(){
+    var ul = document.getElementById("resultsList");
+    
+    var actualPerson = people[peopleIndex];
+    var clientName = actualPerson.name;
+
+    var resultsDiv = document.createElement("div");
+    resultsDiv.setAttribute("class", "person");
+    ul.appendChild(resultsDiv);
+
+    //////////////////////
+    
+    var mainDiv = document.createElement("div");
+    mainDiv.setAttribute("class", "person-experience");
+    resultsDiv.appendChild(mainDiv);
+
+    let totalArr = timeTotal(yearsTotal, monthsTotal, daysTotal);
+    yearsTotal = totalArr[0];
+    monthsTotal = totalArr[1];
+    daysTotal = totalArr[2];
+
+    var li = document.createElement("li");
+
+    if(isFullDate)
+    {
+        li.innerText = clientName + " TOTAL: " + showYearsMonthsDays(yearsTotal, monthsTotal, daysTotal);
+    }
+    else
+    {
+        li.innerText = clientName + " TOTAL: " + showYearsMonthsDays(yearsTotal, monthsTotal);
+    }
+    
+    mainDiv.appendChild(li);
+
+    totalArr = [];
+    yearsTotal = 0;
+    monthsTotal = 0;
+    daysTotal = 0;
+
+
+    
+    //------------------ Function --------------------//
+
+    var deployButton = document.createElement("button");
+    deployButton.innerText = "⇣";
+    deployButton.setAttribute("id", "deployButton" + cont)
+    deployButton.setAttribute("onclick", "getButtonId(this)");
+    deployButton.setAttribute("class", "deploy-button");
+    mainDiv.appendChild(deployButton);
+
+    ////////////////////////
+
+
+
+    //------------------ Function --------------------//
+
+    var subDiv = document.createElement("div");
+    subDiv.setAttribute("class", "item-list" + cont);
+    resultsDiv.appendChild(subDiv);
+
+    var subUl = document.createElement("ul");
+    subUl.setAttribute("class", "experience-data");
+    subDiv.appendChild(subUl);
+
+    var i = 0;
+    var totalExperience = actualPerson.path;
+    totalExperience.forEach((item)=>{
+        let subLi = document.createElement("li");
+        subLi.innerText = item.work + ": " + item.time + " (" + display[i].startDisp + " - " + display[i].endDisp + ")";
+        subUl.appendChild(subLi);
+        i++;
+      })
+    display = [];
+
+    var hiddenList = document.querySelector(".item-list" + cont);
+    hiddenList.style.display = "none";
+
+    peopleIndex++; 
+    cont++;
+
+    ////////////////////////
+}

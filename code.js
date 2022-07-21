@@ -160,29 +160,29 @@ function getFullDateDif(start, end){
     return showYearsMonthsDays(years, months, days);
 }
 //obtains the diference between two dates with the format: mm/yyyy
-function getDateDifference(timeInMonths){
-    years = Math.floor(timeInMonths/12);
-    months = timeInMonths % 12;
-    days = 0;
+// function getDateDifference(timeInMonths){
+//     years = Math.floor(timeInMonths/12);
+//     months = timeInMonths % 12;
+//     days = 0;
 
-    months++;
+//     months++;
 
-    if(months == 12)
-    {
-        months = 0;
-        years++;
-    }
+//     if(months == 12)
+//     {
+//         months = 0;
+//         years++;
+//     }
 
-    yearsTotal = yearsTotal + years;
-    monthsTotal = monthsTotal + months;
-    if(monthsTotal > 12)
-    {
-        monthsTotal = monthsTotal % 12;
-        yearsTotal++;
-    }
+//     yearsTotal = yearsTotal + years;
+//     monthsTotal = monthsTotal + months;
+//     if(monthsTotal > 12)
+//     {
+//         monthsTotal = monthsTotal % 12;
+//         yearsTotal++;
+//     }
 
-    return showYearsMonths(years, months);
-}
+//     return showYearsMonths(years, months);
+// }
 //returns the string output for every case of a date (dd/mm/yyyy) 
 function showYearsMonthsDays(years,months, days){
     return years == 1 && months == 1 && days == 1? years + " año, " + months + " mes y " + days + " dia": 
@@ -194,21 +194,6 @@ function showYearsMonthsDays(years,months, days){
     years == 1? years + " año, " + months + " meses y " + days + " dias":
     years + " años, " + months + " meses y " + days + " dias";
 }
-//returns the string output for every case of a date (dd/mm/yyyy) 
-function showYearsMonths(years, months){
-    return years === 1 && months === 1? years + " año y " + months + " mes": 
-        months === 1? years + " años y " + months + " mes":
-        years === 1? years + " año y " + months + " meses":
-        years + " años y " + months + " meses";
-}
-//calculates the time diference in months between two dates
-function monthDiff(start, end) {
-    const dateStart = new Date(start);
-    const dateEnd = new Date(end);
-    return dateEnd.getMonth() - dateStart.getMonth() + 
-    (12 * (dateEnd.getFullYear() - dateStart.getFullYear()))
-}
-
 
 // -------------------------------  MODULE 1 y 2 -------------------------------// ✅
 
@@ -291,16 +276,7 @@ function getYears(){
     start = orderDate(start);
     end = orderDate(end);
 
-    if(len === 10)
-    {
-        totalTime = getFullDateDif(start, end);
-        isFullDate = true;
-    }
-    else
-    {    
-        let timeInMonths = monthDiff(start, end);
-        totalTime = getDateDifference(timeInMonths);
-    }
+    totalTime = getFullDateDif(start, end);
 }
 
 var experience;
@@ -381,8 +357,6 @@ function showPeople(){
     var resultsDiv = document.createElement("div");
     resultsDiv.setAttribute("class", "person");
     ul.appendChild(resultsDiv);
-
-    //////////////////////
     
     var mainDiv = document.createElement("div");
     mainDiv.setAttribute("class", "person-experience");
@@ -394,16 +368,7 @@ function showPeople(){
     daysTotal = totalArr[2];
 
     var li = document.createElement("li");
-    
-    if(isFullDate)
-    {
-        li.innerText = clientName + " TOTAL: " + showYearsMonthsDays(yearsTotal, monthsTotal, daysTotal);
-    }
-    else
-    {
-        li.innerText = clientName + " TOTAL: " + showYearsMonthsDays(yearsTotal, monthsTotal);
-    }
-    
+    li.innerText = clientName + " TOTAL: " + showYearsMonthsDays(yearsTotal, monthsTotal, daysTotal);
     mainDiv.appendChild(li);
 
     totalArr = [];
@@ -411,23 +376,21 @@ function showPeople(){
     monthsTotal = 0;
     daysTotal = 0;
 
+    createButton(mainDiv);
+    listOfJobs(resultsDiv, actualPerson);
+}
 
-    
-    //------------------ Function --------------------//
+//BUTTON
 
+function createButton(mainDiv){
     var deployButton = document.createElement("button");
     deployButton.innerText = "⇣";
     deployButton.setAttribute("id", "deployButton" + cont)
     deployButton.setAttribute("onclick", "getButtonId(this)");
     deployButton.setAttribute("class", "deploy-button");
     mainDiv.appendChild(deployButton);
-
-    ////////////////////////
-
-
-
-    //------------------ Function --------------------//
-
+}
+function listOfJobs(resultsDiv, actualPerson){
     var subDiv = document.createElement("div");
     subDiv.setAttribute("class", "item-list" + cont);
     resultsDiv.appendChild(subDiv);
@@ -451,11 +414,7 @@ function showPeople(){
 
     peopleIndex++; 
     cont++;
-
-    ////////////////////////
 }
-
-//BUTTON
 
 var itemClass = ".item-list";
 //obtains wich button is pressing to ralate ir with a list
@@ -487,4 +446,4 @@ function toggleShowList(){
 }
 
 
-// v07.03
+// v07.06
