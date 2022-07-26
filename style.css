@@ -103,7 +103,7 @@ input:focus{
 }
 
 
-/* BLOQUE 1 - CLIENTE */
+/* MODULE 1 - CLIENTE */
 
 .client-info{
     width: 50%;
@@ -117,14 +117,14 @@ input:focus{
     margin-bottom: 1em;
 }
 
-/* BLOQUE 2 - EMPRESA */
+/* MODULE 2 - EMPRESA */
 
 .company-info{
     width: 50%;
     padding: 5px 15px 20px 20px;
 }
 
-/* BLOQUE 3 - FECHAS */
+/* MODULE 3 - FECHAS */
 
 .dates{
     padding: 15px 10px 15px 25px;
@@ -145,77 +145,75 @@ input:focus{
 }
 
 .date-button{
-    display: flex;
-    justify-content: center;
+    text-align: center;
+}
+
+.date-button .button{
     margin-top: 10px;
 }
 
-#date-button-ag{
-    margin-right: 190px;
+/* MODULE 4 - RESULTADOS */
+
+.results-container{
+width: 100%;
 }
-
- /* BLOQUE 4 - RESULTADOS */
-
- .results-container{
-    width: 100%;
- }
 
 .results{
-    padding: 1px 0px 10px 0px;
-    margin-bottom: 15px;
+padding: 1px 0px 10px 0px;
+margin-bottom: 15px;
 }
 
- .results-tittle{
+.results-tittle{
+margin: auto;
+padding-left: 20px;
+border-bottom: 0.5px solid rgb(255, 255, 255, 0.30);
+}
+
+.results p{
+    font-weight: bold;
+    font-size: larger;
+}
+
+.results-list{
     margin: auto;
-    padding-left: 20px;
-    border-bottom: 0.5px solid rgb(255, 255, 255, 0.30);
- }
+    padding: 10px 35px;
+}
 
- .results p{
-     font-weight: bold;
-     font-size: larger;
- }
-
- .results-list{
-     margin: auto;
-     padding: 10px 35px;
- }
-
- .results-list li{
-    list-style-type: none;
- }
+.results-list li{
+list-style-type: none;
+}
 
 .person{
-    margin-bottom: 10px;
-    border-bottom: 0.5px solid rgb(255, 255, 255, 0.30);
+margin-bottom: 10px;
+border-bottom: 0.5px solid rgb(255, 255, 255, 0.30);
 }
 
- .person-experience{
-     display: flex;
-     padding-bottom: 10px;
- }
+.person-experience{
+    display: flex;
+    padding-bottom: 10px;
+}
 
- .experience-data{
-     padding-bottom: 8px;
-     margin-bottom: 10px;
- }
+.experience-data{
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+}
 
- .experience-data li{
-     list-style: "↪ ";
-     padding-bottom: 2px;
- }
+.experience-data li{
+    list-style: "↪ ";
+    padding-bottom: 2px;
+}
 
- .deploy-button{
-     margin-left: 10px;
-     color: white;
-     font-weight: bolder;
-     background-color: transparent;
-     border: 0.5px solid rgb(255, 255, 255, 0.30);
-     border-radius: 5px;
- }
+.deploy-button{
+    margin-left: 10px;
+    color: white;
+    font-weight: bolder;
+    background-color: transparent;
+    border: 0.5px solid rgb(255, 255, 255, 0.30);
+    border-radius: 5px;
+}
 
- .deploy-button:hover{
-     transition: 0.2s;
-     color: rgba(17,25,40,0.65);
-     background-color: white;
- }
+.deploy-button:hover{
+    transition: 0.2s;
+    color: rgba(17,25,40,0.65);
+    background-color: white;
+}

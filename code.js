@@ -126,9 +126,7 @@ function checkDate(dif, dateInArr){
     
 }
 
-
 //---------------------------------  OBTAIN  ---------------------------------//
-
 
 // DATES
 var years = 0;
@@ -139,7 +137,7 @@ var yearsTotal = 0;
 var monthsTotal = 0;
 var dateInArr = [];
 
-//obtains the diference between two dates with the format: dd/mm/yyyy
+//obtains the diference between two dates
 function getFullDateDif(start, end){
     var date1 = new Date(start);
     var date2 = new Date(end);
@@ -159,31 +157,7 @@ function getFullDateDif(start, end){
 
     return showYearsMonthsDays(years, months, days);
 }
-//obtains the diference between two dates with the format: mm/yyyy
-// function getDateDifference(timeInMonths){
-//     years = Math.floor(timeInMonths/12);
-//     months = timeInMonths % 12;
-//     days = 0;
 
-//     months++;
-
-//     if(months == 12)
-//     {
-//         months = 0;
-//         years++;
-//     }
-
-//     yearsTotal = yearsTotal + years;
-//     monthsTotal = monthsTotal + months;
-//     if(monthsTotal > 12)
-//     {
-//         monthsTotal = monthsTotal % 12;
-//         yearsTotal++;
-//     }
-
-//     return showYearsMonths(years, months);
-// }
-//returns the string output for every case of a date (dd/mm/yyyy) 
 function showYearsMonthsDays(years,months, days){
     return years == 1 && months == 1 && days == 1? years + " año, " + months + " mes y " + days + " dia": 
     years == 1 && months == 1? years + " año, " + months + " mes y " + days + " dias":
@@ -195,7 +169,7 @@ function showYearsMonthsDays(years,months, days){
     years + " años, " + months + " meses y " + days + " dias";
 }
 
-// -------------------------------  MODULE 1 y 2 -------------------------------// ✅
+// -------------------------------  MODULE 1 y 2 -------------------------------// 
 
 //-Functions-//
 
@@ -250,7 +224,7 @@ function getCompanyOnKey(event){
 }
 
 
-// -------------------------------  MODULE 3 -------------------------------// ❌
+// -------------------------------  MODULE 3 -------------------------------//
 
 //-Functions//
 
@@ -259,18 +233,7 @@ var totalTime = null;
 var display = [];
 var isFullDate = false;
 //obtain the dates and execute the functions to calculate the diference
-function getYears(){
-    start = document.getElementById("dateStart").value;
-    end = document.getElementById("dateEnd").value;
- 
-    let len = start.length;
-    //si la fecha no incluye el dia
-    if (len === 7)
-    {
-        start = "01/" + start;
-        end = "01/" + end;     
-    }
-
+function getYears(start, end, len){
     displayList(len);
 
     start = orderDate(start);
@@ -287,32 +250,80 @@ function addExperience(company, totalTime){
     totalExperience.push(experience);
 }
 
+function isLeapYear(year) {
+
+    //three conditions to find out the leap year
+    if ((0 == year % 4) && (0 != year % 100) || (0 == year % 400)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function dateIsValid(date){
+    if(date.length === 7 || date.length === 10)
+    {
+        var day = date.slice(0, 2), month = date.slice(3,5), year = date.slice(6,10);
+        if(year <= 2022)
+        {
+            if(month == 2)
+            {
+                console.log("Es febrero")
+                return day >= 1? (isLeapYear(year) && day <= 29) || (!isLeapYear(year) && day <= 28)? true: false: false;
+            }
+        }
+    }
+}
+
+// else{
+//     if(month == 1 3 5 7 8 10 12) // 31 dias
+// }
+
+
 //-Agregar-//
 
-//executes the functions getYears and addExperience when "agregar" is pressed
+// executes the functions getYears and addExperience when "agregar" is pressed
 function funcExperience(){
-    getYears();
-    addExperience(company, totalTime);
-
-    var companyName = document.getElementById("companyName")
-    companyName.disabled = false;
-    companyName.value = ""
-
-    companyName.focus();
-    companyName.select();
 
     var dateStart = document.getElementById("dateStart");
-    dateStart.value = "";
-    dateStart.disabled = true;
-
     var dateEnd = document.getElementById("dateEnd");
-    dateEnd.value = "";
-    dateEnd.disabled = true;
 
-    dateInArr = [];
-    days = 0;
-    months = 0;
-    years = 0;
+    start = dateStart.value;
+    end = dateEnd.value;
+    let len = start.length;
+    if (len === 7)
+    {
+        start = "01/" + start;
+        end = "01/" + end;     
+    }
+
+    if(dateIsValid(start) && dateIsValid(end))
+    {
+        getYears(start, end, len);
+        addExperience(company, totalTime);
+
+        var companyName = document.getElementById("companyName")
+        companyName.disabled = false;
+        companyName.value = ""
+
+        companyName.focus();
+        companyName.select();
+
+        dateStart.value = "";
+        dateStart.disabled = true;
+
+        dateEnd.value = "";
+        dateEnd.disabled = true;
+
+        dateInArr = [];
+        days = 0;
+        months = 0;
+        years = 0;
+    }
+    else
+    {
+        !dateIsValid(start) && !dateIsValid(end)? alert("Ambas fechas ingresadas son invalidas"): dateIsValid(start)? alert("Fecha de fin invalida"): alert("Fecha de inicio invalida");
+    }
 }
 function funcExperienceOnKey(event){
     var key = event.keyCode;
@@ -323,7 +334,7 @@ function funcExperienceOnKey(event){
 
 var person;
 var people = [];
-//saves the client with his/her total path and executes showPeople
+// saves the client with his/her total path and executes showPeople
 function submitInfo(){
     person = {name: client, path: totalExperience}
     people.push(person);
@@ -343,7 +354,7 @@ function submitInfo(){
 }
 
 
-// -------------------------------  MODULE 4 -------------------------------// ❌
+// -------------------------------  MODULE 4 -------------------------------//
 
 var peopleIndex = 0;
 var cont = 0;
