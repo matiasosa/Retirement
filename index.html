@@ -16,62 +16,75 @@
 
 <!-- @matisosa_ -->
 
-<body class="container">
+<body id="page" class="pink">
 
-    <div class="sub-container">
+    <details class="themes">
+        <summary>Themes</summary>
+        <a onclick="colorChange('black')">Black</a>
+        <a onclick="colorChange('red')">Red</a>
+        <a onclick="colorChange('blue')">Blue</a>
+        <a onclick="colorChange('green')">Green</a>
+        <a onclick="colorChange('pink')">Pink</a>
+    </details>
 
-        <!-- MODULE 1 -->
+    <div class="container">
 
-        <div class="client-info block">
-            <h3>Ingrese el nombre del cliente</h3>
-            <input id="clientName" type="text" placeholder="Nombre" onkeydown="onlyAlpha(event); getClientOnKey(event);">           
-            <button id="clientButton" class="button" onclick="getClient()">Enviar</button>
-        </div>
+        <div class="sub-container">
 
-       <!-- MODULE 2 -->
-
-       <div class="company-info block">
-            <h3>Ingrese la empresa</h3>
-            <input id="companyName" type="text" placeholder="Empresa" disabled onkeydown="getCompanyOnKey(event)">
-            <button id="companytButton" class="button" onclick="getCompany()">Enviar</button>
-        </div>
+            <!-- MODULE 1 -->
     
-    </div>
-
-     <!-- MODULE 3 -->
-
-     <div class="dates block">
-        <div class="date-inputs">
-            <div class="date-input-inic">
-                <p>Fecha de inicio</p>
-                <input type="text" id="dateStart" placeholder="DD/MM/AAAA" disabled maxlength="10">
-            </div>
-            <div class="date-input-fin">
-                <p>Fecha de fin</p>
-                <input type="text" id="dateEnd" placeholder="DD/MM/AAAA" disabled onkeydown="funcExperienceOnKey(event)" maxlength="10">
-            </div>
-        </div>
-        <div class="date-button">
-            <div>
-                <button class="button" onclick="funcExperience()">Agregar</button>
-            </div>
-            <div>
-                <button class="button" onclick="submitInfo()">Finalizar</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- MODULE 4 -->
-
-    <div class="results-container block">
-        <div class="results">
-            <div class="results-tittle">
-                <p>Resultados</p>
+            <div class="client-info block">
+                <h3>Ingrese el nombre del cliente</h3>
+                <input id="clientName" type="text" placeholder="Nombre" onkeydown="onlyAlpha(event); getClientOnKey(event);">           
+                <button id="clientButton" class="button" onclick="getClient()">Enviar</button>
             </div>
     
-            <ul id="resultsList" class="results-list">
-            </ul>
+           <!-- MODULE 2 -->
+    
+           <div class="company-info block">
+                <h3>Ingrese la empresa</h3>
+                <input id="companyName" type="text" placeholder="Empresa" disabled onkeydown="getCompanyOnKey(event)">
+                <button id="companytButton" class="button" onclick="getCompany()">Enviar</button>
+            </div>
+        
         </div>
+    
+         <!-- MODULE 3 -->
+    
+         <div class="dates block">
+            <div class="date-inputs">
+                <div class="date-input-inic">
+                    <p>Fecha de inicio</p>
+                    <input type="text" id="dateStart" placeholder="DD/MM/AAAA" disabled maxlength="10">
+                </div>
+                <div class="date-input-fin">
+                    <p>Fecha de fin</p>
+                    <input type="text" id="dateEnd" placeholder="DD/MM/AAAA" disabled onkeydown="funcExperienceOnKey(event)" maxlength="10">
+                </div>
+            </div>
+            <div class="date-button">
+                <div>
+                    <button class="button" onclick="funcExperience()">Agregar</button>
+                </div>
+                <div>
+                    <button class="button" onclick="submitInfo()">Finalizar</button>
+                </div>
+            </div>
+        </div>
+    
+        <!-- MODULE 4 -->
+    
+        <div class="results-container block">
+            <div class="results">
+                <div class="results-tittle">
+                    <p>Resultados</p>
+                </div>
+        
+                <ul id="resultsList" class="results-list">
+                </ul>
+            </div>
+        </div>
+        
     </div>
     
     <!-- JAVASCRIPT CODDE -->

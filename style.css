@@ -4,12 +4,97 @@
     max-width: 640px;
     margin: auto;
     font-family: sans-serif;
-    /* background-image: url(https://media.istockphoto.com/vectors/abstract-blurred-colorful-background-vector-id1248542684?k=20&m=1248542684&s=612x612&w=0&h=1yKiRrtPhiqUJXS_yJDwMGVHVkYRk2pJX4PG3TT4ZYM=);
-    background-repeat: no-repeat;
-    background-size: cover; */
 }
 
-@keyframes bgcolor {
+@keyframes bgcolorBlack {
+    0% {
+        background-color: black
+    }
+
+    30% {
+        background-color: #f946ff9f
+    }
+
+    60% {
+        background-color: #ff46ff9f
+    }
+
+    90% {
+        background-color: #f946ff9f
+    }
+
+    100% {
+        background-color: #bb46ff9f
+    }
+}
+
+@keyframes bgcolorRed {
+    0% {
+        background-color: red
+    }
+
+    30% {
+        background-color: #f946ff9f
+    }
+
+    60% {
+        background-color: #ff46ff9f
+    }
+
+    90% {
+        background-color: #f946ff9f
+    }
+
+    100% {
+        background-color: #bb46ff9f
+    }
+}
+
+@keyframes bgcolorBlue {
+    0% {
+        background-color: blue
+    }
+
+    30% {
+        background-color: #f946ff9f
+    }
+
+    60% {
+        background-color: #ff46ff9f
+    }
+
+    90% {
+        background-color: #f946ff9f
+    }
+
+    100% {
+        background-color: #bb46ff9f
+    }
+}
+
+@keyframes bgcolorYellow {
+    0% {
+        background-color: yellow
+    }
+
+    30% {
+        background-color: #f946ff9f
+    }
+
+    60% {
+        background-color: #ff46ff9f
+    }
+
+    90% {
+        background-color: #f946ff9f
+    }
+
+    100% {
+        background-color: #bb46ff9f
+    }
+}
+
+@keyframes bgcolorPink {
     0% {
         background-color: #bb46ff9f
     }
@@ -31,9 +116,33 @@
     }
 }
 
+.black{
+    -webkit-animation: bgcolorBlack 20s infinite;
+    animation: bgcolorBlack 10s infinite;
+}
+
+.red{
+    -webkit-animation: bgcolorRed 20s infinite;
+    animation: bgcolorRed 10s infinite;
+}
+
+.blue{
+    -webkit-animation: bgcolorBlue 20s infinite;
+    animation: bgcolorBlue 10s infinite;
+}
+
+.yellow{
+    -webkit-animation: bgcolorYellow 20s infinite;
+    animation: bgcolorYellow 10s infinite;
+}
+
+.pink{
+    -webkit-animation: bgcolorPink 20s infinite;
+    animation: bgcolorPink 10s infinite;
+}
+
+
 body {
-    -webkit-animation: bgcolor 20s infinite;
-    animation: bgcolor 10s infinite;
     -webkit-animation-direction: alternate;
     animation-direction: alternate;
 }
@@ -101,7 +210,6 @@ input:focus{
     background-color: #bb46ff9f;
     color: white;
 }
-
 
 /* MODULE 1 - CLIENTE */
 
@@ -216,4 +324,12 @@ border-bottom: 0.5px solid rgb(255, 255, 255, 0.30);
     transition: 0.2s;
     color: rgba(17,25,40,0.65);
     background-color: white;
+}
+
+/* THEMES */
+
+.themes{
+    float: right;
+    display: flex;
+    cursor: pointer;
 }

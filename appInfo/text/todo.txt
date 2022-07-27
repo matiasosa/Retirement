@@ -2,7 +2,8 @@ Detector de errores:
     Ingresar una fecha:
         Que el input no este vacio -ok
         
-        Que la fecha sea valida
+        Que la fecha sea valida -ok
+        Que el char 2 y 5 sean '/'
         Que no sea un string
         ... Buscar que el input sea estrictamente una fecha
 
@@ -28,6 +29,9 @@ Handle:
 Add: 
     - Boton para poder eliminar a una persona (añadir una confirmacion previa a eliminar)
     - El boton "Enviar" cambia a "Editar" al hacerle click. Si se hace click en "Editar", se permite modificar el campo.
+    - Theme: distintas opciones de colores (cambia el fondo y los botones)
+    - Languages: opcion de ingles y español
+    - Apartado: Info / How to use
 
 
 Public

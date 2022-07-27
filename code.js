@@ -463,4 +463,30 @@ function toggleShowList(){
 }
 
 
+function colorChange(color)
+{
+    var body = document.getElementById("page");
+
+    if(color == "black")
+    {
+        body.setAttribute("class", "black");
+    }
+    else if(color == "red")
+    {
+        body.setAttribute("class", "red");
+    }
+    else if(color == "blue")
+    {
+        body.setAttribute("class", "blue");
+    }
+    else if(color == "green")
+    {
+        body.setAttribute("class", "green");
+    }
+    else
+    {
+        body.setAttribute("class", "pink");
+    }
+}
+
 // v07.06
