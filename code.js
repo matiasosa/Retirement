@@ -147,11 +147,10 @@ function getFullDateDif(start, end){
     var dif =  moment.preciseDiff(a, b);
     dateInArr = dif.split(" ");
 
-    console.log(dateInArr)
-
-    checkDate(dif, dateInArr);    
+    checkDate(dif, dateInArr);
 
     daysTotal = daysTotal + parseInt(days, 10);
+    days == 0? months++: daysTotal;
     monthsTotal = monthsTotal + parseInt(months, 10);
     yearsTotal = yearsTotal + parseInt(years, 10);
 
@@ -240,6 +239,7 @@ function getYears(start, end, len){
     end = orderDate(end);
 
     totalTime = getFullDateDif(start, end);
+    console.log(totalTime)
 }
 
 var experience;
@@ -251,34 +251,32 @@ function addExperience(company, totalTime){
 }
 
 function isLeapYear(year) {
-
-    //three conditions to find out the leap year
     if ((0 == year % 4) && (0 != year % 100) || (0 == year % 400)) {
         return true;
     } else {
         return false;
     }
 }
-
-function dateIsValid(date){
+function isValidDate(date){
     if(date.length === 7 || date.length === 10)
     {
         var day = date.slice(0, 2), month = date.slice(3,5), year = date.slice(6,10);
         if(year <= 2022)
         {
-            if(month == 2)
+            if(day >= 1)
             {
-                console.log("Es febrero")
-                return day >= 1? (isLeapYear(year) && day <= 29) || (!isLeapYear(year) && day <= 28)? true: false: false;
+                if(month == 2)
+                {
+                    return (isLeapYear(year) && day <= 29) || (!isLeapYear(year) && day <= 28)? true: false;
+                }
+                else{
+                    return ((month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) && day <= 31) ||
+                    ((month == 4 || month == 6 || month == 9 || month == 11 && day <= 30))? true: false;
+                }
             }
         }
     }
 }
-
-// else{
-//     if(month == 1 3 5 7 8 10 12) // 31 dias
-// }
-
 
 //-Agregar-//
 
@@ -297,7 +295,7 @@ function funcExperience(){
         end = "01/" + end;     
     }
 
-    if(dateIsValid(start) && dateIsValid(end))
+    if(isValidDate(start) && isValidDate(end))
     {
         getYears(start, end, len);
         addExperience(company, totalTime);
@@ -322,7 +320,7 @@ function funcExperience(){
     }
     else
     {
-        !dateIsValid(start) && !dateIsValid(end)? alert("Ambas fechas ingresadas son invalidas"): dateIsValid(start)? alert("Fecha de fin invalida"): alert("Fecha de inicio invalida");
+        !isValidDate(start) && !isValidDate(end)? alert("Ambas fechas ingresadas son invalidas"): isValidDate(start)? alert("Fecha de fin invalida"): alert("Fecha de inicio invalida");
     }
 }
 function funcExperienceOnKey(event){
@@ -336,21 +334,29 @@ var person;
 var people = [];
 // saves the client with his/her total path and executes showPeople
 function submitInfo(){
-    person = {name: client, path: totalExperience}
-    people.push(person);
-
-    totalExperience = [];
-
-    document.getElementById("companyName").disabled = true;
-
-    var clientName = document.getElementById("clientName");
-    clientName.disabled = false;
-    clientName.value = "";
-
-    clientName.focus();
-    clientName.select();
-
-    showPeople();
+    
+    if(totalExperience.length == 0)
+    {
+        alert("Debe añadir al menos un trabajo")
+    }
+    else
+    {
+        person = {name: client, path: totalExperience}
+        people.push(person);
+    
+        totalExperience = [];
+    
+        document.getElementById("companyName").disabled = true;
+    
+        var clientName = document.getElementById("clientName");
+        clientName.disabled = false;
+        clientName.value = "";
+    
+        clientName.focus();
+        clientName.select();
+    
+        showPeople();
+    }
 }
 
 
