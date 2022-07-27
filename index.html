@@ -18,14 +18,21 @@
 
 <body id="page" class="pink">
 
-    <details class="themes">
-        <summary>Themes</summary>
-        <a onclick="colorChange('black')">Black</a>
-        <a onclick="colorChange('red')">Red</a>
-        <a onclick="colorChange('blue')">Blue</a>
-        <a onclick="colorChange('green')">Green</a>
-        <a onclick="colorChange('pink')">Pink</a>
-    </details>
+    <div class="dropdown">
+        <button class="dropbtn aboutBtn">?</button>
+    </div>
+
+    <div class="dropdown">
+        <button class="dropbtn themesBtn"></button>
+        <div class="dropdown-content themes">
+            <a class="blackOption" onclick="colorChange('black')"></a>
+            <a class="redOption" onclick="colorChange('red')"></a>
+            <a class="blueOption" onclick="colorChange('blue')"></a>
+            <a class="greenOption" onclick="colorChange('green')"></a>
+            <a class="pinkOption" onclick="colorChange('pink')"></a>
+        </div>
+    </div>
+
 
     <div class="container">
 

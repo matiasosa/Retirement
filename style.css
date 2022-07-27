@@ -6,142 +6,6 @@
     font-family: sans-serif;
 }
 
-@keyframes bgcolorBlack {
-    0% {
-        background-color: black
-    }
-
-    30% {
-        background-color: #f946ff9f
-    }
-
-    60% {
-        background-color: #ff46ff9f
-    }
-
-    90% {
-        background-color: #f946ff9f
-    }
-
-    100% {
-        background-color: #bb46ff9f
-    }
-}
-
-@keyframes bgcolorRed {
-    0% {
-        background-color: red
-    }
-
-    30% {
-        background-color: #f946ff9f
-    }
-
-    60% {
-        background-color: #ff46ff9f
-    }
-
-    90% {
-        background-color: #f946ff9f
-    }
-
-    100% {
-        background-color: #bb46ff9f
-    }
-}
-
-@keyframes bgcolorBlue {
-    0% {
-        background-color: blue
-    }
-
-    30% {
-        background-color: #f946ff9f
-    }
-
-    60% {
-        background-color: #ff46ff9f
-    }
-
-    90% {
-        background-color: #f946ff9f
-    }
-
-    100% {
-        background-color: #bb46ff9f
-    }
-}
-
-@keyframes bgcolorYellow {
-    0% {
-        background-color: yellow
-    }
-
-    30% {
-        background-color: #f946ff9f
-    }
-
-    60% {
-        background-color: #ff46ff9f
-    }
-
-    90% {
-        background-color: #f946ff9f
-    }
-
-    100% {
-        background-color: #bb46ff9f
-    }
-}
-
-@keyframes bgcolorPink {
-    0% {
-        background-color: #bb46ff9f
-    }
-
-    30% {
-        background-color: #f946ff9f
-    }
-
-    60% {
-        background-color: #ff46ff9f
-    }
-
-    90% {
-        background-color: #f946ff9f
-    }
-
-    100% {
-        background-color: #bb46ff9f
-    }
-}
-
-.black{
-    -webkit-animation: bgcolorBlack 20s infinite;
-    animation: bgcolorBlack 10s infinite;
-}
-
-.red{
-    -webkit-animation: bgcolorRed 20s infinite;
-    animation: bgcolorRed 10s infinite;
-}
-
-.blue{
-    -webkit-animation: bgcolorBlue 20s infinite;
-    animation: bgcolorBlue 10s infinite;
-}
-
-.yellow{
-    -webkit-animation: bgcolorYellow 20s infinite;
-    animation: bgcolorYellow 10s infinite;
-}
-
-.pink{
-    -webkit-animation: bgcolorPink 20s infinite;
-    animation: bgcolorPink 10s infinite;
-}
-
-
 body {
     -webkit-animation-direction: alternate;
     animation-direction: alternate;
@@ -326,10 +190,210 @@ border-bottom: 0.5px solid rgb(255, 255, 255, 0.30);
     background-color: white;
 }
 
-/* THEMES */
+/* DROPDOWN */
 
-.themes{
+.dropdown{
     float: right;
     display: flex;
-    cursor: pointer;
 }
+
+.dropbtn{
+    margin-left: 10px;
+    margin-bottom: 5px;
+    width: 35px;
+    height: 35px;
+    border: 2px solid black;
+    border-radius: 50px;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown{
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content{
+    display: none;
+    position: absolute;
+    background-color: transparent;
+    min-width: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 12px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a{
+    margin: 5px;
+    padding: 12px;
+    color: black;
+    text-decoration: none;
+    display: block;
+    border: 2px solid black;
+    border-radius: 50%;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    opacity: 70%;
+    border-radius: 50%;
+    transition: all ease 0.1s;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* THEMES */
+
+.themesBtn {margin: 0;}
+
+.blackOption {background-color: black;}
+.redOption {background-color: red;}
+.blueOption {background-color: blue;}
+.greenOption {background-color: green;}
+.pinkOption {background-color: pink;}
+
+.pink .themesBtn {background-color: pink;}
+.black .themesBtn {background-color: black;}
+.red .themesBtn {background-color: red;}
+.blue .themesBtn {background-color: blue;}
+.green .themesBtn {background-color: green;}
+
+@keyframes bgcolorBlack {
+    0% {
+        background-color: black
+    }
+
+    30% {
+        background-color: #f946ff9f
+    }
+
+    60% {
+        background-color: #ff46ff9f
+    }
+
+    90% {
+        background-color: #f946ff9f
+    }
+
+    100% {
+        background-color: #bb46ff9f
+    }
+}
+@keyframes bgcolorRed {
+    0% {
+        background-color: red
+    }
+
+    30% {
+        background-color: #f946ff9f
+    }
+
+    60% {
+        background-color: #ff46ff9f
+    }
+
+    90% {
+        background-color: #f946ff9f
+    }
+
+    100% {
+        background-color: #bb46ff9f
+    }
+}
+@keyframes bgcolorBlue {
+    0% {
+        background-color: blue
+    }
+
+    30% {
+        background-color: #f946ff9f
+    }
+
+    60% {
+        background-color: #ff46ff9f
+    }
+
+    90% {
+        background-color: #f946ff9f
+    }
+
+    100% {
+        background-color: #bb46ff9f
+    }
+}
+@keyframes bgcolorGreen {
+    0% {
+        background-color: green
+    }
+
+    30% {
+        background-color: #f946ff9f
+    }
+
+    60% {
+        background-color: #ff46ff9f
+    }
+
+    90% {
+        background-color: #f946ff9f
+    }
+
+    100% {
+        background-color: #bb46ff9f
+    }
+}
+@keyframes bgcolorPink {
+    0% {
+        background-color: #bb46ff9f
+    }
+
+    30% {
+        background-color: #f946ff9f
+    }
+
+    60% {
+        background-color: #ff46ff9f
+    }
+
+    90% {
+        background-color: #f946ff9f
+    }
+
+    100% {
+        background-color: #bb46ff9f
+    }
+}
+
+.black{
+    -webkit-animation: bgcolorBlack 20s infinite;
+    animation: bgcolorBlack 10s infinite;
+}
+
+.red{
+    -webkit-animation: bgcolorRed 20s infinite;
+    animation: bgcolorRed 10s infinite;
+}
+
+.blue{
+    -webkit-animation: bgcolorBlue 20s infinite;
+    animation: bgcolorBlue 10s infinite;
+}
+
+.green{
+    -webkit-animation: bgcolorGreen 20s infinite;
+    animation: bgcolorGreen 10s infinite;
+}
+
+.pink{
+    -webkit-animation: bgcolorPink 20s infinite;
+    animation: bgcolorPink 10s infinite;
+}
+
+
+/* ABOUT */ 
+
+.aboutBtn {background: transparent;}
+
+.aboutBtn:hover {background-color: #fffdfdb3;}
