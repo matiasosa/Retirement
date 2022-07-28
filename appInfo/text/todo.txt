@@ -30,7 +30,6 @@ Add:
     - Boton para poder eliminar a una persona (añadir una confirmacion previa a eliminar)
     - El boton "Enviar" cambia a "Editar" al hacerle click. Si se hace click en "Editar", se permite modificar el campo.
     - Theme: distintas opciones de colores (cambia el fondo y los botones)
-    - Languages: opcion de ingles y español
     - Apartado: Info / How to use
 
 

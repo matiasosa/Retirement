@@ -462,7 +462,6 @@ function toggleShowList(){
     }
 }
 
-
 function colorChange(color)
 {
     var body = document.getElementById("page");

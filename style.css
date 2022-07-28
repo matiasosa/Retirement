@@ -252,9 +252,9 @@ border-bottom: 0.5px solid rgb(255, 255, 255, 0.30);
 .redOption {background-color: red;}
 .blueOption {background-color: blue;}
 .greenOption {background-color: green;}
-.pinkOption {background-color: pink;}
+.pinkOption {background-color: #ff46ff9f;}
 
-.pink .themesBtn {background-color: pink;}
+.pink .themesBtn {background-color: #ff46ff9f;}
 .black .themesBtn {background-color: black;}
 .red .themesBtn {background-color: red;}
 .blue .themesBtn {background-color: blue;}
@@ -266,61 +266,61 @@ border-bottom: 0.5px solid rgb(255, 255, 255, 0.30);
     }
 
     30% {
-        background-color: #f946ff9f
+        background-color: rgb(36, 36, 36)
     }
 
     60% {
-        background-color: #ff46ff9f
+        background-color: rgb(61, 61, 61)
     }
 
     90% {
-        background-color: #f946ff9f
+        background-color: rgb(36, 36, 36)
     }
 
     100% {
-        background-color: #bb46ff9f
+        background-color: black
     }
 }
 @keyframes bgcolorRed {
     0% {
-        background-color: red
+        background-color: rgb(165, 0, 0)
     }
 
     30% {
-        background-color: #f946ff9f
+        background-color: rgba(164, 20, 20, 0.954)
     }
 
     60% {
-        background-color: #ff46ff9f
+        background-color: rgba(189, 29, 29, 0.904)
     }
 
     90% {
-        background-color: #f946ff9f
+        background-color: rgba(164, 20, 20, 0.954)
     }
 
     100% {
-        background-color: #bb46ff9f
+        background-color: rgb(165, 0, 0)
     }
 }
 @keyframes bgcolorBlue {
     0% {
-        background-color: blue
+        background-color: rgb(3, 3, 156)
     }
 
     30% {
-        background-color: #f946ff9f
+        background-color: rgba(23, 23, 154, 0.954)
     }
 
     60% {
-        background-color: #ff46ff9f
+        background-color: rgba(46, 46, 188, 0.878)
     }
 
     90% {
-        background-color: #f946ff9f
+        background-color: rgba(23, 23, 154, 0.954)
     }
 
     100% {
-        background-color: #bb46ff9f
+        background-color: rgb(3, 3, 156)
     }
 }
 @keyframes bgcolorGreen {
@@ -329,19 +329,19 @@ border-bottom: 0.5px solid rgb(255, 255, 255, 0.30);
     }
 
     30% {
-        background-color: #f946ff9f
+        background-color: rgb(16, 144, 16)
     }
 
     60% {
-        background-color: #ff46ff9f
+        background-color: rgba(48, 162, 48, 0.918)
     }
 
     90% {
-        background-color: #f946ff9f
+        background-color: rgb(16, 144, 16)
     }
 
     100% {
-        background-color: #bb46ff9f
+        background-color: green
     }
 }
 @keyframes bgcolorPink {
