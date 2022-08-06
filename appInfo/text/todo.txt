@@ -12,15 +12,10 @@ Detector de errores:
         Se puede agregar un nombre para identificar a cada proceso
 
 
-Una vez enviado el cliente este debe pasar a disable. -ok
-
-Onclick = "Agregar" => vaciar "empresa" y "fechas", disable fechas y apuntar a empresa. -ok
-
-Onclick = "Finalizar" => empezar de 0, pedir "nombre", con "empresa" y "fechas" disabled -ok
-
-	... programar la función que muestre al cliente y su trayectoria en "Resultados", es decir, mostrar el array people. -ok
-
-Limitar la cantidad de chars que pueden tener las fechas (10 = 99/99/9999) -ok
+Hacer que el programa solo utilice 4 funciones, 
+y crear una API con todas las funciones alternativas que deben ser utilizadas.
+Ademas, intentar pasar las variables por parametro y no que sean declaradas fuera
+de las funciones
 
 Handle:
 	- Hover botones

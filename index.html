@@ -61,17 +61,17 @@
          <div class="dates block">
             <div class="date-inputs">
                 <div class="date-input-inic">
-                    <p>Fecha de inicio</p>
+                    <p>Fecha de inici</p>
                     <input type="text" id="dateStart" placeholder="DD/MM/AAAA" disabled maxlength="10">
                 </div>
                 <div class="date-input-fin">
                     <p>Fecha de fin</p>
-                    <input type="text" id="dateEnd" placeholder="DD/MM/AAAA" disabled onkeydown="funcExperienceOnKey(event)" maxlength="10">
+                    <input type="text" id="dateEnd" placeholder="DD/MM/AAAA" disabled onkeydown="addJobOnKey(event)" maxlength="10">
                 </div>
             </div>
             <div class="date-button">
                 <div>
-                    <button class="button" onclick="funcExperience()">Agregar</button>
+                    <button class="button" onclick="addJob()">Agregar</button>
                 </div>
                 <div>
                     <button class="button" onclick="submitInfo()">Finalizar</button>

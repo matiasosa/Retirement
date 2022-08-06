@@ -21,26 +21,6 @@ function onlyNumeric(event){
     }
 }
 
-//creates an array of date objects (start:end) and save them to be shown later
-function displayList(len)
-{
-    var startDisplay = start;
-    var endDisplay = end;
-    if(len === 7)
-    {
-        startDisplay = startDisplay.slice(-7);
-        endDisplay = endDisplay.slice(-7);
-
-        toDisplay = {startDisp: startDisplay, endDisp: endDisplay};
-        display.push(toDisplay);
-    }
-    else
-    {
-        toDisplay = {startDisp: startDisplay, endDisp: endDisplay};
-        display.push(toDisplay);
-    }
-}
-
 //transform date format from dd/mm/yyyy to mm/dd/yyyy
 function orderDate(date){
     let days = date.slice(0, 2);
@@ -70,52 +50,52 @@ function timeTotal(yearsTotal, monthsTotal, daysTotal){
 }
 
 //verifies if the array contains or not year, month and day (should use less resources)
-function checkDate(dif, dateInArr){
+function checkDate(dif, difInArr){
     var includeYear = dif.includes("year");
     var includeMonth = dif.includes("month");
     var includeDay = dif.includes("day");
 
     if(includeYear && includeMonth && includeDay)
     {
-        years = dateInArr[0];
-        months = dateInArr[2];
-        days = dateInArr[4];
+        years = difInArr[0];
+        months = difInArr[2];
+        days = difInArr[4];
     }
     if(!includeYear && includeMonth && includeDay)
     {
         years = 0;
-        months = dateInArr[0];
-        days = dateInArr[2];
+        months = difInArr[0];
+        days = difInArr[2];
     }
     if(includeYear && !includeMonth && includeDay)
     {
-        years = dateInArr[0];
+        years = difInArr[0];
         months = 0;
-        days = dateInArr[2];
+        days = difInArr[2];
     }
     if(includeYear && includeMonth && !includeDay)
     {
-        years = dateInArr[0];
-        months = dateInArr[2];
+        years = difInArr[0];
+        months = difInArr[2];
         days = 0;
     }
     if(includeYear && !includeMonth && !includeDay)
     {
-        years = dateInArr[0];
+        years = difInArr[0];
         months = 0;
         days = 0;
     }
     if(!includeYear && includeMonth && !includeDay)
     {
         years = 0;
-        months = dateInArr[2];
+        months = difInArr[0];
         days = 0;
     }
     if(!includeYear && !includeMonth && includeDay)
     {
         years = 0;
         months = 0;
-        days = dateInArr[0];
+        days = difInArr[0];
     }
 
     if(days == 30)
@@ -135,19 +115,19 @@ var days = 0;
 var daysTotal = 0;
 var yearsTotal = 0;
 var monthsTotal = 0;
-var dateInArr = [];
+var difInArr = [];
 
 //obtains the diference between two dates
-function getFullDateDif(start, end){
+function getDateDifference(start, end){
     var date1 = new Date(start);
     var date2 = new Date(end);
     var a = moment(date1);
     var b = moment(date2);
 
     var dif =  moment.preciseDiff(a, b);
-    dateInArr = dif.split(" ");
+    difInArr = dif.split(" ");
 
-    checkDate(dif, dateInArr);
+    checkDate(dif, difInArr);
 
     daysTotal = daysTotal + parseInt(days, 10);
     days == 0? months++: daysTotal;
@@ -172,7 +152,7 @@ function showYearsMonthsDays(years,months, days){
 
 //-Functions-//
 
-// verifies if the input is empty (in development:to verify more things)
+// verifies if the input is empty (in development:to verify more things) XXX
 function inputIsValid(x){
     return x.length !== 0;
 }
@@ -190,7 +170,6 @@ function getClient(){
 
         var companyName = document.getElementById("companyName")
         companyName.disabled = false;
-        companyName.focus();
         companyName.select();
     }
 }
@@ -213,7 +192,6 @@ function getCompany(){
         document.getElementById("dateEnd").disabled = false;
 
         var dateStart = document.getElementById("dateStart");
-        dateStart.focus();
         dateStart.select();
     }
 }
@@ -232,14 +210,15 @@ var totalTime = null;
 var display = [];
 var isFullDate = false;
 //obtain the dates and execute the functions to calculate the diference
-function getYears(start, end, len){
-    displayList(len);
+function getTimeOfWork(){
+
+    toDisplay = {startDisp: start, endDisp: end};
+    display.push(toDisplay);
 
     start = orderDate(start);
     end = orderDate(end);
 
-    totalTime = getFullDateDif(start, end);
-    console.log(totalTime)
+    totalTime = getDateDifference(start, end);
 }
 
 var experience;
@@ -280,14 +259,15 @@ function isValidDate(date){
 
 //-Agregar-//
 
-// executes the functions getYears and addExperience when "agregar" is pressed
-function funcExperience(){
+// executes the functions getTimeOfWork and addExperience when "agregar" is pressed
+function addJob(){
 
     var dateStart = document.getElementById("dateStart");
     var dateEnd = document.getElementById("dateEnd");
 
     start = dateStart.value;
     end = dateEnd.value;
+
     let len = start.length;
     if (len === 7)
     {
@@ -297,7 +277,8 @@ function funcExperience(){
 
     if(isValidDate(start) && isValidDate(end))
     {
-        getYears(start, end, len);
+        getTimeOfWork();
+
         addExperience(company, totalTime);
 
         var companyName = document.getElementById("companyName")
@@ -312,20 +293,15 @@ function funcExperience(){
 
         dateEnd.value = "";
         dateEnd.disabled = true;
-
-        dateInArr = [];
-        days = 0;
-        months = 0;
-        years = 0;
     }
     else
     {
         !isValidDate(start) && !isValidDate(end)? alert("Ambas fechas ingresadas son invalidas"): isValidDate(start)? alert("Fecha de fin invalida"): alert("Fecha de inicio invalida");
     }
 }
-function funcExperienceOnKey(event){
+function addJobOnKey(event){
     var key = event.keyCode;
-    key == 13? funcExperience(): key;
+    key == 13? addJob(): key;
 }
 
 //-Finalizar-//
@@ -384,6 +360,8 @@ function showPeople(){
     monthsTotal = totalArr[1];
     daysTotal = totalArr[2];
 
+    verifyMatchingDates();
+
     var li = document.createElement("li");
     li.innerText = clientName + " TOTAL: " + showYearsMonthsDays(yearsTotal, monthsTotal, daysTotal);
     mainDiv.appendChild(li);
@@ -395,6 +373,18 @@ function showPeople(){
 
     createButton(mainDiv);
     listOfJobs(resultsDiv, actualPerson);
+}
+
+function verifyMatchingDates(){
+
+    for (let i = 0; i < display.length; i++){
+        for (let j = 1; j < display.length; j++) {
+            comp(display[i], display[j])
+        }
+    }
+    //recorrer display y encontrar fechas coincidentes
+    //calcular el tiempo que hay entre esas dos fechas
+    //restarle el tiempo a yearsTotal, monthsTotal, daysTotal
 }
 
 //BUTTON
@@ -461,6 +451,9 @@ function toggleShowList(){
         itemClass = ".item-list";
     }
 }
+
+
+// THEMES
 
 function colorChange(color)
 {
