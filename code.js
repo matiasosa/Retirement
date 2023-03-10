@@ -168,7 +168,7 @@ function getClient(){
     {
         document.getElementById("clientName").disabled = true;
 
-        var companyName = document.getElementById("companyName")
+        var companyName = document.getElementById("companyName");
         companyName.disabled = false;
         companyName.select();
     }
@@ -256,6 +256,23 @@ function isValidDate(date){
         }
     }
 }
+function isValidEndDate(start, end){
+    var startDay = start.slice(0, 2), startMonth = start.slice(3,5), startYear = start.slice(6,10);
+    var endDay = end.slice(0, 2), endMonth = end.slice(3,5), endYear = end.slice(6,10);
+
+    if(startYear == endYear)
+    {
+        if(startMonth == endMonth){
+            return startDay <= endDay? true: false;
+        }
+        else{
+            return startMonth < endMonth? true: false;
+        }
+    }
+    else{
+        return startYear < endYear? true: false;
+    }
+}
 
 //-Agregar-//
 
@@ -275,7 +292,7 @@ function addJob(){
         end = "01/" + end;     
     }
 
-    if(isValidDate(start) && isValidDate(end))
+    if(isValidDate(start) && (isValidDate(end) && isValidEndDate(start, end)))
     {
         getTimeOfWork();
 
@@ -296,7 +313,7 @@ function addJob(){
     }
     else
     {
-        !isValidDate(start) && !isValidDate(end)? alert("Ambas fechas ingresadas son invalidas"): isValidDate(start)? alert("Fecha de fin invalida"): alert("Fecha de inicio invalida");
+        !isValidDate(start) && !isValidDate(end)? alert("Ambas fechas ingresadas son invalidas"): !isValidEndDate(start,end)? alert("La fecha de  inicio debe ser anterior a la de fin"): isValidDate(start)? alert("Fecha de fin invalida"): alert("Fecha de inicio invalida");
     }
 }
 function addJobOnKey(event){
@@ -360,7 +377,7 @@ function showPeople(){
     monthsTotal = totalArr[1];
     daysTotal = totalArr[2];
 
-    verifyMatchingDates();
+    //verifyMatchingDates();
 
     var li = document.createElement("li");
     li.innerText = clientName + " TOTAL: " + showYearsMonthsDays(yearsTotal, monthsTotal, daysTotal);
@@ -375,17 +392,17 @@ function showPeople(){
     listOfJobs(resultsDiv, actualPerson);
 }
 
-function verifyMatchingDates(){
+// function verifyMatchingDates(){
 
-    for (let i = 0; i < display.length; i++){
-        for (let j = 1; j < display.length; j++) {
-            comp(display[i], display[j])
-        }
-    }
-    //recorrer display y encontrar fechas coincidentes
-    //calcular el tiempo que hay entre esas dos fechas
-    //restarle el tiempo a yearsTotal, monthsTotal, daysTotal
-}
+//     for (let i = 0; i < display.length; i++){
+//         for (let j = 1; j < display.length; j++) {
+//             comp(display[i], display[j])
+//         }
+//     }
+//     //recorrer display y encontrar fechas coincidentes
+//     //calcular el tiempo que hay entre esas dos fechas
+//     //restarle el tiempo a yearsTotal, monthsTotal, daysTotal
+// }
 
 //BUTTON
 
@@ -422,6 +439,7 @@ function listOfJobs(resultsDiv, actualPerson){
     peopleIndex++; 
     cont++;
 }
+
 
 var itemClass = ".item-list";
 //obtains wich button is pressing to ralate ir with a list

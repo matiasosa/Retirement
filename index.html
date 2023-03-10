@@ -42,7 +42,7 @@
     
             <div class="client-info block">
                 <h3>Ingrese el nombre del cliente</h3>
-                <input id="clientName" type="text" placeholder="Nombre" onkeydown="onlyAlpha(event); getClientOnKey(event);">           
+                <input id="clientName" class="nombreCliente" type="text" placeholder="Nombre" onkeydown="onlyAlpha(event); getClientOnKey(event);">           
                 <button id="clientButton" class="button" onclick="getClient()">Enviar</button>
             </div>
     
@@ -61,7 +61,7 @@
          <div class="dates block">
             <div class="date-inputs">
                 <div class="date-input-inic">
-                    <p>Fecha de inici</p>
+                    <p>Fecha de inicio</p>
                     <input type="text" id="dateStart" placeholder="DD/MM/AAAA" disabled maxlength="10">
                 </div>
                 <div class="date-input-fin">
