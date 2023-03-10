@@ -15,7 +15,7 @@ function onlyNumeric(event){
     var x = String.fromCharCode(event.which);
     var key = event.keyCode;
 
-    if(!(/[0-9]/i.test(event.key)) && !(/[/]/i.test(event.key)) && (key < 37 || key > 40) && key != 8  && key != 9)
+    if(!(/[0-9]/i.test(event.key)) && !(/[/]/i.test(event.key)) && (key < 37 || key > 40) && key != 8  && key != 9 && key != 13)
     {
         event.preventDefault();
     }
@@ -172,6 +172,9 @@ function getClient(){
         companyName.disabled = false;
         companyName.select();
     }
+    else{
+        client.length == 0? alert("Ingrese un nombre"):client;
+    }
 }
 function getClientOnKey(event){
     var key = event.keyCode;
@@ -193,6 +196,9 @@ function getCompany(){
 
         var dateStart = document.getElementById("dateStart");
         dateStart.select();
+    }
+    else{
+        company.length == 0? alert("Ingrese una empresa"):company;
     }
 }
 function getCompanyOnKey(event){
@@ -237,9 +243,12 @@ function isLeapYear(year) {
     }
 }
 function isValidDate(date){
+    var day = date.slice(0, 2), month = date.slice(3,5), year = date.slice(6,10);
+    if(!date.includes('/') || year < 1900){
+        return false;
+    }
     if(date.length === 7 || date.length === 10)
     {
-        var day = date.slice(0, 2), month = date.slice(3,5), year = date.slice(6,10);
         if(year <= 2022)
         {
             if(day >= 1)
@@ -254,6 +263,9 @@ function isValidDate(date){
                 }
             }
         }
+    }
+    else{
+        return false;
     }
 }
 function isValidEndDate(start, end){
@@ -380,7 +392,7 @@ function showPeople(){
     //verifyMatchingDates();
 
     var li = document.createElement("li");
-    li.innerText = clientName + " TOTAL: " + showYearsMonthsDays(yearsTotal, monthsTotal, daysTotal);
+    li.innerText = clientName + "- TOTAL: " + showYearsMonthsDays(yearsTotal, monthsTotal, daysTotal);
     mainDiv.appendChild(li);
 
     totalArr = [];

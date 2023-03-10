@@ -42,7 +42,7 @@
     
             <div class="client-info block">
                 <h3>Ingrese el nombre del cliente</h3>
-                <input id="clientName" class="nombreCliente" type="text" placeholder="Nombre" onkeydown="onlyAlpha(event); getClientOnKey(event);">           
+                <input id="clientName" class="nombreCliente" type="text" placeholder="Nombre" maxlength="25" onkeydown="onlyAlpha(event); getClientOnKey(event);">           
                 <button id="clientButton" class="button" onclick="getClient()">Enviar</button>
             </div>
     
@@ -50,7 +50,7 @@
     
            <div class="company-info block">
                 <h3>Ingrese la empresa</h3>
-                <input id="companyName" type="text" placeholder="Empresa" disabled onkeydown="getCompanyOnKey(event)">
+                <input id="companyName" type="text" placeholder="Empresa" disabled maxlength="25" onkeydown="getCompanyOnKey(event)">
                 <button id="companytButton" class="button" onclick="getCompany()">Enviar</button>
             </div>
         
@@ -62,11 +62,11 @@
             <div class="date-inputs">
                 <div class="date-input-inic">
                     <p>Fecha de inicio</p>
-                    <input type="text" id="dateStart" placeholder="DD/MM/AAAA" disabled maxlength="10">
+                    <input type="text" id="dateStart" placeholder="DD/MM/AAAA" disabled maxlength="10", onkeydown="onlyNumeric(event)">
                 </div>
                 <div class="date-input-fin">
                     <p>Fecha de fin</p>
-                    <input type="text" id="dateEnd" placeholder="DD/MM/AAAA" disabled onkeydown="addJobOnKey(event)" maxlength="10">
+                    <input type="text" id="dateEnd" placeholder="DD/MM/AAAA" disabled maxlength="10" onkeydown="onlyNumeric(event); addJobOnKey(event)">
                 </div>
             </div>
             <div class="date-button">
