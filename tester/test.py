@@ -48,8 +48,8 @@ chrome_options = ChromeOptions()
 chrome_options.add_experimental_option("detach", True)
 
 driver = webdriver.Chrome(executable_path="chromedriver", options=chrome_options)
-driver.get("file:///Users/matiassosa/Desktop/macbookPro/Programacion/retirement/index.html")
-#https://matiasosa.github.io/Retirement/
+driver.get("https://matiasosa.github.io/Retirement/")
+
 
 #nombre | char de la empresa | arr de fechas
 def execute(clientName, compName, dates):
